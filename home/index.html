@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MyHomePage</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <html>
+  <head>
+    <title>THE GATE TO GREATNESS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" language="javascript">
+    function welcheSuche () {
+      var Eingabe = document.getElementById('q').value;
+
+      switch(Eingabe) {
+        /* Help */
+        case "--help": {
+          alert(" --y Youtube \n --r Reddit \n --i Google-Image \n --a Amazon \n --w Wikipedia \n --t Twitter \n --f Facebook \n\n");
+        }
+
+        default: {
+          if ((Eingabe.search("--")) == -1) {
+            location.href="http://www.google.fr/search?q="+document.getElementById('q').value;
+          } else
+          {
+            Eingaben = Eingabe.split("--");
+
+            switch(Eingaben[1]) {
+              case 'y':
+              location.href="https://www.youtube.fr/results?search_query="+Eingaben[0]; break;
+              case 'r':
+						  location.href="https://www.reddit.com/search?q="+Eingaben[0]; break;
+						  case 'i':
+						  location.href="https://www.google.fr/search?tbm=isch&q="+Eingaben[0]; break;
+						  case 'a':
+						  location.href="https://www.amazon.fr/s/&field-keywords="+Eingaben[0]; break;
+						  case 'w':
+						  location.href="https://fr.wikipedia.org/wiki/"+Eingaben[0]; break;
+						  case 't':
+						  location.href="https://twitter.com/search?q="+Eingaben[0]; break;
+						  case 'f':
+						  location.href="https://www.facebook.com/search/results/?init=quick&q="+Eingaben[0]; break;
+						  default:
+            }
+          }
+        }
+      }
+    }
+
+    function clock () {
+      if (document.getElementById('clockbox').style.display == "none") {
+        document.getElementById('clockbox').style.display="block";
+        document.getElementById('clockboxActivate').innerHTML="<<br><<br><"
+        document.getElementById('clockboxActivate').style.opacity="0.3";
+
+      } else {
+        document.getElementById('clockbox').style.display="none";
+        document.getElementById('clockboxActivate').innerHTML="><br>><br>>"
+        document.getElementById('clockboxActivate').style.opacity="0.2";
+      }
+    }
+
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1 class="hidden">Header</h1>
+      <div id="clockboxActivate" onclick="javascript:clock()" >><br>><br>></div>
+      <div id="clockbox" onclick="javascript:clock()"></div>
+      <script type="text/javascript" language="javascript">
+      function getClock () {
+        d = new Date();
+        nhour = d.getHours();
+        nmin = d.getMinutes();
+        nday = d.getDay();
+
+        if(nhour <= 9) {nhour = "0"+nhour;}
+        if(nmin <= 9) {nmin = "0"+nmin;}
+
+        var nTag;
+        switch(nday) {
+          case 1 : nTag="Lundi"; break;
+					case 2 : nTag="Mardi"; break;
+					case 3 : nTag="Mercredi"; break;
+					case 4 : nTag="Jeudi"; break;
+					case 5 : nTag="Vendredi"; break;
+					case 6 : nTag="Samedi"; break;
+					case 7 : nTag="Dimanche"; break;
+          default:
+        }
+        document.getElementById('clockbox').innerHTML=""+nTag+" "+nhour+":"+nmin+"";
+        setTimeout("getClock()", 1000);
+      }
+
+      window.onload=getClock;
+      </script>
+    </header>
+    <section id="main">
+      <h1 class="hidden">Hauptbereich</h1>
+      <section id="oben">
+        <h2 class="hidden">Obere Reihe</h2>
+        <a href="http://www.facebook.com/"><article><img src="http://i.imgur.com/NwnUIOK.png" /></article></a>
+        <a href="http://www.google.fr/"><article><img src="res/google_icon.png"/></article></a>
+				<a href="http://www.youtube.fr/"><article><img src="http://i.imgur.com/aVaSAmY.png"/></article></a>
+      </section>
+      <section id="unten">
+        <h2 class="hidden">Untere Reihe</h2>
+				<a href="https://intra.epitech.eu/"><article><img src="res/epitech_icon.png"/></article></a>
+				<a href="https://outlook.office365.com"><article><img src="res/mail_icon.png"/></article></a>
+				<a href="http://www.zone-telechargement.com/homep.html"><article><img src="http://i.imgur.com/Qc8Vuxn.png"/></article></a>
+      </section>
+    </section>
+
+    <section id="search">
+      <form method=GET action="javascript:welcheSuche()" id="SearchForm">
+        <h3 class="hidden">Suche</h3>
+        <input type="search" value=""  name="q" id="q" autocomplete="off"></input>
+        <script type="text/javascript" language="javascript">
+        SearchForm.q.focus();
+        SearchForm.q.value="";
+        </script>
+      </section>
+    </body>
+    </html>
+  </body>
+</html>
