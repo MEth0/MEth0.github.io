@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script src="https://use.fontawesome.com/42d13c4f90.js"></script>
 		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" language="javascript">
     function welcheSuche () {
@@ -116,15 +117,15 @@
       </section>
     </section>
 
-    <section id="search">
-      <form method=GET action="javascript:welcheSuche()" id="SearchForm">
-        <h3 class="hidden">Suche</h3>
-        <input type="search" value=""  name="q" id="q" autocomplete="off"></input>
-        <script type="text/javascript" language="javascript">
-        SearchForm.q.focus();
-        SearchForm.q.value="";
-        </script>
-      </section>
+    <!-- Search Bar -->
+    <div class="box">
+      <div class="container-1">
+        <form method=GET action="javascript:welcheSuche()" id="SearchForm">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input type="search" name="q" id="q" placeholder="Search..." />
+        </div>
+      </div>
+
     </body>
     </html>
   </body>
